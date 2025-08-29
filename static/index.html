@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document Summary Assistant</title>
+	<link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="logo">📝</div>
+			<div>
+				<h1>DocSumm</h1>
+				<p class="subtitle">Your owm document summary assistant, so that you can <b>Summarize the Scroll</b></p>
+			</div>
+		</div>
+
+		<div class="layout">
+			<div class="card uploader">
+				<div id="dropzone" class="dropzone" tabindex="0" role="button" aria-label="Upload file">
+					<div>
+						<strong>Drag & drop</strong> file here
+						<div class="muted">or</div>
+						<label class="button">
+							<input id="fileInput" type="file" accept=".pdf,.png,.jpg,.jpeg,.bmp,.tiff" />
+							Choose file
+						</label>
+					</div>
+				</div>
+
+				<div class="controls">
+					<label for="length">Summary length</label>
+					<select id="length">
+						<option value="short">Short</option>
+						<option value="medium" selected>Medium</option>
+						<option value="long">Long</option>
+					</select>
+					<button id="summarizeBtn" class="primary">
+						<span class="btn-text">Summarize</span>
+						<span class="spinner hidden" aria-hidden="true"></span>
+					</button>
+				</div>
+
+				<div id="status" class="status hidden"></div>
+			</div>
+
+			<div class="card">
+				<div class="preview">
+					<div class="thumb" id="thumb"><span class="muted">No file</span></div>
+					<div class="meta">
+						<div class="name" id="filename">Select a document</div>
+						<div class="size" id="filesize">PDF or image up to ~15MB</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="result" class="result hidden">
+			<div class="result-grid">
+				<div class="result-card summary-card">
+					<h2>Summary</h2>
+					<p id="summary" class="summary-text"></p>
+				</div>
+				<div class="result-card kp-card">
+					<h3>Key Points</h3>
+					<ul id="keypoints" class="kp-list"></ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="/static/app.js"></script>
+</body>
+</html>
